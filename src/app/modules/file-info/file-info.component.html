@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Hochgeladene Dateien</mat-card-title>
+    <mat-card-subtitle>Bitte fügen Sie weitere Dateien hinzu</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let file of getFiles()">
+        <mat-icon mat-list-icon>music_note</mat-icon>
+        <h4 mat-line>{{getCompetion(file)}}</h4>
+        <p mat-line> {{getNumberOfSongs(file)}} Lieder {{getNumberOfTeams(file)}} Teams</p>
+        <mat-icon color="warn" (click)="removeFile(file)">delete</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="fileInput.click()">
+      <span>Hinzufügen</span>
+      <input #fileInput type="file" (change)="addFile($event)" style="display:none;"/>
+    </button>
+  </mat-card-actions>
+</mat-card>

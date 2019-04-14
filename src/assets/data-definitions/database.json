@@ -1,0 +1,18 @@
+{
+  "folder": "Startklasse",
+  "filename": "Team Name",
+  "danceTeam": {
+    "name_female": "",
+    "name_male" : "",
+    "familyname_female" : "",
+    "familyname_male" : "",
+    "name_team" : ""
+  },
+  "music": {
+    "footwork" : "",
+    "acrobatic" : "",
+    "setup" : "",
+    "show" : "",
+    "reserve" : ""
+  }
+}

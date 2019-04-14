@@ -1,0 +1,18 @@
+{
+  "folder": "Startklasse",
+  "filename": "",
+  "danceTeam": {
+    "name_female": "Vorname Dame",
+    "name_male" : "Vorname Herr",
+    "familyname_female" : "Name Dame",
+    "familyname_male" : "Name Herr",
+    "name_team" : "Team Name"
+  },
+  "music": {
+    "footwork" : "Musik Fusstechnik",
+    "acrobatic" : "Musik Akrobatik",
+    "setup" : "Musik Stellprobe",
+    "show" : "Musik Tanzmusik",
+    "reserve" : "Musik Ersatzmusik"
+  }
+}
