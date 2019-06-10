@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {DialogInfoData} from './DialogInfoData';
+import {DialogInfoData} from '../models/dialog-info-data.model';
 
 @Component({
   selector: 'app-custom-info-dialog',

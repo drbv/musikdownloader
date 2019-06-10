@@ -6,9 +6,8 @@ import {WorkerService} from './services/worker/worker.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent
-{
-  constructor(private workerService: WorkerService)
-  {
+export class AppComponent {
+
+  constructor(private workerService: WorkerService) {
   }
 }

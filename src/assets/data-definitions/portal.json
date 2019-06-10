@@ -1,6 +1,5 @@
 {
   "folder": "Startklasse",
-  "filename": "",
   "danceTeam": {
     "name_female": "Vorname Dame",
     "name_male" : "Vorname Herr",
@@ -8,7 +7,7 @@
     "familyname_male" : "Name Herr",
     "name_team" : "Team Name"
   },
-  "music": {
+  "portalMusic": {
     "footwork" : "Musik Fusstechnik",
     "acrobatic" : "Musik Akrobatik",
     "setup" : "Musik Stellprobe",

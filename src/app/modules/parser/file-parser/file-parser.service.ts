@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ParserFactoryService} from '../parser-factory/parser-factory.service';
 import {FileTypeService} from '../parser-factory/file-type.service';
-import {ParserResult} from '../file-definition/ParserResult';
+import {ParserResult} from '../file-definition/parser-result.interface';
 import {Observable, Subject} from 'rxjs';
 
 @Injectable({
@@ -11,8 +11,7 @@ export class FileParserService {
 
   constructor(private parserFactory: ParserFactoryService, private fileTypeService: FileTypeService) { }
 
-  parse(file: File): Observable<ParserResult>
-  {
+  parse(file: File): Observable<ParserResult> {
     const parser = this.parserFactory.getParser(file);
 
     console.log('found parser: ', parser);
@@ -21,10 +20,9 @@ export class FileParserService {
 
     parser.parse(file).then(result => {
 
-      const parserResult = {
+      const parserResult: ParserResult = {
         competitionNumber: this.getCompetionNumber(file),
         fileType: this.fileTypeService.getFileType(file),
-        dataModel: this.getDataModelId(file),
         data: result
       };
 
@@ -34,22 +32,13 @@ export class FileParserService {
     return subject;
   }
 
-  private getDataModelId(file: File) {
-    if (!file)
-    {
+  private getCompetionNumber(file: File): number {
+    if (!file) {
       return 0;
     }
 
-    return parseInt(file.name.substr(0, 1), 0);
-  }
+    console.log('filename: ', file.name);
 
-  private getCompetionNumber(file: File): number
-  {
-    if (!file)
-    {
-      return 0;
-    }
-
-    return parseInt(file.name.substr(2, 7), 0);
+    return parseInt(file.name.substr(0, 7), 0);
   }
 }

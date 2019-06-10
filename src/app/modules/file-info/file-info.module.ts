@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 import {
   MatButtonModule,
   MatCardModule, MatDialogModule,
@@ -11,16 +10,21 @@ import {
 import {FileInfoComponent} from './file-info.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CustomInfoDialogComponent} from '../custom-dialog/custom-info-dialog/custom-info-dialog.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {CustomDialogModule} from '../custom-dialog/custom-dialog.module';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
     FileInfoComponent
   ],
   imports: [
+    CommonModule,
+    CustomDialogModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    FlexLayoutModule,
     FormsModule,
     MatButtonModule,
     MatInputModule,
@@ -32,9 +36,6 @@ import {CustomInfoDialogComponent} from '../custom-dialog/custom-info-dialog/cus
   exports:
   [
     FileInfoComponent
-  ],
-  entryComponents: [
-    CustomInfoDialogComponent
   ]
 })
 export class FileInfoModule { }

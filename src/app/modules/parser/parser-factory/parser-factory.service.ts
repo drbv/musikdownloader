@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {CsvParser} from '../parsers/CsvParser';
-import {IParser} from '../file-definition/IParser';
+import {CsvParser} from './parsers/CsvParser';
+import {IParser} from '../file-definition/parser.interface';
 import {FileTypeService} from './file-type.service';
 import {FileType} from '../../../enums/FileType';
 
@@ -18,10 +18,8 @@ export class ParserFactoryService {
 
     const fileType = this.fileTypeService.getFileType(file);
 
-    switch (fileType)
-    {
-      case FileType.FILETYPE_CSV:
-      {
+    switch (fileType) {
+      case FileType.FILETYPE_CSV: {
         parser = new CsvParser();
         break;
       }

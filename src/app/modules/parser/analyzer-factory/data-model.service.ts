@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {DataModel} from '../../models/DataModel';
+import {DataModel} from '../../../models/DataModel';
 
 export enum eDataModelId {
-  DATABASE = 1,
-  PORTAL   = 2
+  DATABASE_RR = 'RR',
+  DATABASE_BW = 'BW',
+  PORTAL   = 'AB'
 }
 
 export interface DataModelType {
@@ -21,22 +22,18 @@ export class DataModelService {
   dataModelDictionary: Map<eDataModelId, string> = new Map<eDataModelId, string>();
 
   constructor(private readonly httpClient: HttpClient) {
-    this.dataModelDictionary.set(eDataModelId.DATABASE, 'assets/data-definitions/database.json');
+    this.dataModelDictionary.set(eDataModelId.DATABASE_RR, 'assets/data-definitions/database_rr.json');
+    this.dataModelDictionary.set(eDataModelId.DATABASE_BW, 'assets/data-definitions/database_bw.json');
     this.dataModelDictionary.set(eDataModelId.PORTAL, 'assets/data-definitions/portal.json');
 
     console.log('loaded data models: ', this.dataModelDictionary);
   }
 
-  setDataModel(type: eDataModelId): Promise<DataModel> {
+  public async setDataModel(type: eDataModelId): Promise<DataModel> {
     const url = this.dataModelDictionary.get(type);
-    const subject = this.httpClient.get<DataModel>(url).toPromise();
+    this.dataModel = await this.httpClient.get<DataModel>(url).toPromise();
 
-
-    subject.then(data => {
-      this.dataModel = data;
-    });
-
-    return subject;
+    return this.dataModel;
   }
 
   getDataModel(): DataModel {

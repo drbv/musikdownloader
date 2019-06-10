@@ -1,2 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.container-full-height
+{
+  height: 100%;
+}
+
+.container-full-width
+{
+  width: 100%;
+}
+
+.custom-mat-button-sm {
+  width: 130px;
+  padding: 0 8px;
+}
+
+.custom-mat-button-default {
+  width: 180px;
+  margin: 0 8px;
+}
+
+.custom-mat-button-container-padding {
+  padding-left: 24px;
+}
+
+.custom-mat-button-container-padding-sm {
+  padding-left: 12px;
+}

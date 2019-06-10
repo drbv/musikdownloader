@@ -1,0 +1,79 @@
+<mat-card>
+  <mat-card-header class="custom-dialog-header-width">
+    <mat-card-title>
+      {{data.title}}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div>{{data.message}}</div>
+  </mat-card-content>
+
+  <div fxShow.xs="false" fxLayout="row wrap" fxLayoutAlign="end">
+    <div ngClass.gt-sm="custom-mat-button-container-padding" ngClass.sm="custom-mat-button-container-padding-sm" [ngSwitch]="data.disableCancelColor">
+      <button mat-stroked-button
+              ngClass.sm="custom-mat-button-sm"
+              ngClass.gt-sm="custom-mat-button-default"
+              [mat-dialog-close]="false"
+              *ngSwitchCase="true">
+            <span fxLayout="row" class="container-full-width" fxLayoutAlign="space-around center">
+              <div>{{data.cancelText}}</div>
+              <mat-icon>{{data.cancelIcon}}</mat-icon>
+            </span>
+      </button>
+      <button mat-stroked-button
+              ngClass.sm="custom-mat-button-sm"
+              ngClass.gt-sm="custom-mat-button-default"
+              color="{{data.cancelButtonColor}}"
+              [mat-dialog-close]="false"
+              *ngSwitchDefault>
+            <span fxLayout="row" class="container-full-width" fxLayoutAlign="space-around center">
+              <div>{{data.cancelText}}</div>
+              <mat-icon>{{data.cancelIcon}}</mat-icon>
+            </span>
+      </button>
+    </div>
+    <div ngClass.gt-sm="custom-mat-button-container-padding" ngClass.sm="custom-mat-button-container-padding-sm" [ngSwitch]="data.disableOkColor">
+      <button mat-stroked-button
+              ngClass.sm="custom-mat-button-sm"
+              ngClass.gt-sm="custom-mat-button-default"
+              [mat-dialog-close]="true"
+              *ngSwitchCase="true">
+          <span fxLayout="row" class="container-full-width" fxLayoutAlign="space-around center">
+            <div>{{data.okText}}</div>
+            <mat-icon>{{data.okIcon}}</mat-icon>
+          </span>
+      </button>
+      <button mat-stroked-button
+              ngClass.sm="custom-mat-button-sm"
+              ngClass.gt-sm="custom-mat-button-default"
+              color="{{data.okButtonColor}}"
+              [mat-dialog-close]="true"
+              *ngSwitchDefault>
+          <span fxLayout="row" class="container-full-width" fxLayoutAlign="space-around center">
+            <div>{{data.okText}}</div>
+            <mat-icon>{{data.okIcon}}</mat-icon>
+          </span>
+      </button>
+    </div>
+  </div>
+
+  <div fxShow.xs="true" fxShow.gt-xs="false" fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <span [ngSwitch]="data.disableCancelColor">
+      <button mat-icon-button [mat-dialog-close]="false" *ngSwitchCase="true">
+      <mat-icon>{{data.cancelIcon}}</mat-icon>
+    </button>
+    <button mat-icon-button color="{{data.cancelButtonColor}}" [mat-dialog-close]="false" *ngSwitchDefault>
+      <mat-icon>{{data.cancelIcon}}</mat-icon>
+    </button>
+    </span>
+    <span [ngSwitch]="data.disableOkColor">
+    <button mat-icon-button [mat-dialog-close]="true" *ngSwitchCase="true">
+      <mat-icon>{{data.okIcon}}</mat-icon>
+    </button>
+    <button mat-icon-button color="{{data.okButtonColor}}" [mat-dialog-close]="true" *ngSwitchDefault>
+      <mat-icon>{{data.okIcon}}</mat-icon>
+    </button>
+    </span>
+  </div>
+
+</mat-card>

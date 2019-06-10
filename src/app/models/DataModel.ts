@@ -6,7 +6,7 @@ export interface DanceTeam {
   name_team: string;
 }
 
-export interface MusicUrl {
+export interface PortalMusic {
   footwork: string;
   acrobatic: string;
   setup: string;
@@ -14,9 +14,17 @@ export interface MusicUrl {
   reserve: string;
 }
 
+export interface DatabaseMusic {
+  name: string;
+  title: string;
+  speed: number;
+  genre: string;
+  url: string;
+}
+
 export interface DataModel {
   folder: string;
-  filename: string;
   danceTeam: DanceTeam;
-  music: MusicUrl;
+  portalMusic: PortalMusic;
+  databaseMusic: DatabaseMusic;
 }

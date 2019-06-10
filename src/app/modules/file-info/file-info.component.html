@@ -4,19 +4,53 @@
     <mat-card-subtitle>Bitte fügen Sie weitere Dateien hinzu</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let file of getFiles()">
+    <mat-selection-list #selectionList>
+      <mat-list-option *ngFor="let file of getFiles()" [value]="file">
         <mat-icon mat-list-icon>music_note</mat-icon>
         <h4 mat-line>{{getCompetion(file)}}</h4>
-        <p mat-line> {{getNumberOfSongs(file)}} Lieder {{getNumberOfTeams(file)}} Teams</p>
-        <mat-icon color="warn" (click)="removeFile(file)">delete</mat-icon>
-      </mat-list-item>
-    </mat-list>
+        <p mat-line> {{getNumberOfSongs(file)}} Lieder <span *ngIf="getNumberOfTeams(file)">{{getNumberOfTeams(file)}} Teams</span></p>
+      </mat-list-option>
+    </mat-selection-list>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-flat-button color="primary" (click)="fileInput.click()">
-      <span>Hinzufügen</span>
+  <div fxLayout="row wrap" fxLayoutAlign="start">
+    <div ngClass.gt-sm="custom-mat-button-container-padding" ngClass.sm="custom-mat-button-container-padding-sm">
+    <button mat-stroked-button
+            ngClass.sm="custom-mat-button-sm"
+            ngClass.gt-sm="custom-mat-button-default"
+            color="primary"
+            (click)="fileInput.click()">
+          <span fxLayout="row" class="container-full-width" fxLayoutAlign="space-around center">
+            <div>Hinzufügen</div>
+            <mat-icon>add</mat-icon>
+          </span>
       <input #fileInput type="file" (change)="addFile($event)" style="display:none;"/>
     </button>
-  </mat-card-actions>
+    </div>
+    <div ngClass.gt-sm="custom-mat-button-container-padding" ngClass.sm="custom-mat-button-container-padding-sm">
+      <input type="folder">
+    <button mat-stroked-button
+            ngClass.sm="custom-mat-button-sm"
+            ngClass.gt-sm="custom-mat-button-default"
+            (click)="downloadSelectedItems()"
+            [disabled]="disableDownloadButton()">
+          <span fxLayout="row" class="container-full-width" fxLayoutAlign="space-around center">
+            <div>Download</div>
+            <mat-icon>cloud_download</mat-icon>
+          </span>
+    </button>
+    </div>
+    <div ngClass.gt-sm="custom-mat-button-container-padding" ngClass.sm="custom-mat-button-container-padding-sm">
+    <button mat-stroked-button
+            ngClass.sm="custom-mat-button-sm"
+            ngClass.gt-sm="custom-mat-button-default"
+            color="warn"
+            (click)="deleteSelectedItems()"
+            [disabled]="disableDeleteButton()">
+          <span fxLayout="row" class="container-full-width" fxLayoutAlign="space-around center">
+            <div>Löschen</div>
+            <mat-icon>delete</mat-icon>
+          </span>
+    </button>
+  </div>
+  </div>
 </mat-card>
