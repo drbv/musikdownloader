@@ -13,10 +13,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CustomDialogModule} from '../custom-dialog/custom-dialog.module';
 import {CommonModule} from '@angular/common';
+import {DownloadStatusDialogComponent} from './download-status-dialog/download-status-dialog.component';
 
 @NgModule({
   declarations: [
-    FileInfoComponent
+    FileInfoComponent,
+    DownloadStatusDialogComponent
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,9 @@ import {CommonModule} from '@angular/common';
   exports:
   [
     FileInfoComponent
+  ],
+  entryComponents: [
+    DownloadStatusDialogComponent
   ]
 })
 export class FileInfoModule { }

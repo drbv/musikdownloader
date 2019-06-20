@@ -11,6 +11,9 @@ import {ConfirmDialogData} from '../custom-dialog/models/confirm-dialog-data.mod
 import {DefaultConfirmDialogComponent} from '../custom-dialog/default-confirm-dialog/default-confirm-dialog.component';
 import {FileDownloadService} from '../download/file-download/file-download.service';
 import {DownloadItem} from '../../models/DownloadItem';
+import {Subject} from 'rxjs';
+import {DownloadStatusDialogComponent} from './download-status-dialog/download-status-dialog.component';
+import {DownloadStatusData} from './download-status-dialog/download-status-data.model';
 
 @Component({
   selector: 'app-file-info',
@@ -105,15 +108,21 @@ export class FileInfoComponent implements OnInit {
   }
 
   public downloadSelectedItems() {
+
     this.selectionList.selectedOptions.selected.forEach(item => {
-      console.log('it: ', item.value.name, this.getFileInfo(item.value).items);
-
+      const songFileName = item.value.name;
       const downloadItems: DownloadItem[] =  this.getFileInfo(item.value).items;
+      const counterSubject = this.fileDownloadService.downloadFiles(downloadItems, songFileName);
 
-      downloadItems.forEach((downloadItem: DownloadItem) => {
-        this.fileDownloadService.downloadFile(downloadItem);
+      this.dialog.open(DownloadStatusDialogComponent, {
+        data: {
+          counterSubject,
+          numberOfDownloads: downloadItems.length,
+          songFileName,
+        } as DownloadStatusData
       });
     });
+
   }
 
   public disableDownloadButton() {

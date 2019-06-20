@@ -1,5 +1,4 @@
-export interface DialogInfoData
-{
+export interface DialogInfoData {
   title: string;
   message: string;
 }
