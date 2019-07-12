@@ -19,8 +19,8 @@ export class BwDataAnalyzer extends BaseAnalyzer {
 
     const downloadItem = new DownloadItem();
     downloadItem.filename = filename;
-    downloadItem.foldername = this.currentModel.folder;
-    downloadItem.url = this.currentModel.databaseMusic.url;
+    downloadItem.foldername = item[this.currentModel.folder];
+    downloadItem.url = item[this.currentModel.databaseMusic.url];
 
     resultItem.downloadItems.push(downloadItem);
 

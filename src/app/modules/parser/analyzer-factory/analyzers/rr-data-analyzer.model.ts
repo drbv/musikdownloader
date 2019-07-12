@@ -6,8 +6,6 @@ export class RrDataAnalyzer extends BaseAnalyzer {
 
   protected onAnalyzeItem(item: any): ResultItem {
 
-    console.log('works: ', this.currentModel);
-
     if (!item[this.currentModel.folder]) {
       return null;
     }
@@ -19,12 +17,13 @@ export class RrDataAnalyzer extends BaseAnalyzer {
 
     const downloadItem = new DownloadItem();
     downloadItem.filename = filename;
-    downloadItem.foldername = this.currentModel.folder;
-    downloadItem.url = this.currentModel.databaseMusic.url;
+    downloadItem.foldername = item[this.currentModel.folder];
+    downloadItem.url = item[this.currentModel.databaseMusic.url];
 
     resultItem.downloadItems.push(downloadItem);
 
     console.log('result: ', resultItem);
+    console.log('item: ', item);
 
     return resultItem;
   }
