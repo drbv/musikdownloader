@@ -1,3 +1,4 @@
 export class Constants {
-  public static CUSTOM_DIALOG_WIDTH = '250px';
+  public static DIALOG_WIDTH_DEFAULT = '80%';
+  public static DIALOG_WIDTH_MOBILE = '100%';
 }

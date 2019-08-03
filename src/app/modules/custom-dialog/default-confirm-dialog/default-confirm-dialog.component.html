@@ -9,9 +9,9 @@
   </mat-card-content>
 
   <div fxShow.xs="false" fxLayout="row wrap" fxLayoutAlign="end">
-    <div ngClass.gt-sm="custom-mat-button-container-padding" ngClass.sm="custom-mat-button-container-padding-sm" [ngSwitch]="data.disableCancelColor">
+    <div ngClass.gt-sm="custom-mat-button-container-padding" ngClass.sm="custom-mat-button-container-padding-xs" [ngSwitch]="data.disableCancelColor">
       <button mat-stroked-button
-              ngClass.sm="custom-mat-button-sm"
+              ngClass.sm="custom-mat-button-xs"
               ngClass.gt-sm="custom-mat-button-default"
               [mat-dialog-close]="false"
               *ngSwitchCase="true">
@@ -21,7 +21,7 @@
             </span>
       </button>
       <button mat-stroked-button
-              ngClass.sm="custom-mat-button-sm"
+              ngClass.sm="custom-mat-button-xs"
               ngClass.gt-sm="custom-mat-button-default"
               color="{{data.cancelButtonColor}}"
               [mat-dialog-close]="false"
@@ -32,9 +32,9 @@
             </span>
       </button>
     </div>
-    <div ngClass.gt-sm="custom-mat-button-container-padding" ngClass.sm="custom-mat-button-container-padding-sm" [ngSwitch]="data.disableOkColor">
+    <div ngClass.gt-sm="custom-mat-button-container-padding" ngClass.sm="custom-mat-button-container-padding-xs" [ngSwitch]="data.disableOkColor">
       <button mat-stroked-button
-              ngClass.sm="custom-mat-button-sm"
+              ngClass.sm="custom-mat-button-xs"
               ngClass.gt-sm="custom-mat-button-default"
               [mat-dialog-close]="true"
               *ngSwitchCase="true">
@@ -44,7 +44,7 @@
           </span>
       </button>
       <button mat-stroked-button
-              ngClass.sm="custom-mat-button-sm"
+              ngClass.sm="custom-mat-button-xs"
               ngClass.gt-sm="custom-mat-button-default"
               color="{{data.okButtonColor}}"
               [mat-dialog-close]="true"

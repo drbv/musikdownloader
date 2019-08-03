@@ -11,8 +11,8 @@
   width: 100%;
 }
 
-.custom-mat-button-sm {
-  width: 130px;
+.custom-mat-button-xs {
+  width: 240px;
   padding: 0 8px;
 }
 
@@ -25,6 +25,30 @@
   padding-left: 24px;
 }
 
-.custom-mat-button-container-padding-sm {
+.custom-mat-button-container-padding-xs {
   padding-left: 12px;
+}
+
+.custom-mat-button-padding-top-xs {
+  padding-top: 12px;
+}
+
+.default-padding-top {
+  padding-top: 24px;
+}
+
+.default-padding-bottom {
+  padding-bottom: 24px;
+}
+
+.container-overflow-auto {
+  overflow: auto;
+}
+
+.container-overflow-forbid {
+  overflow: hidden;
+}
+
+.default-title-logo-xs {
+  width: 90vw;
 }

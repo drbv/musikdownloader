@@ -4,6 +4,7 @@ import {FileInfoModule} from './modules/file-info/file-info.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {CommonModule} from '@angular/common';
     CommonModule,
     BrowserAnimationsModule,
     FileInfoModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

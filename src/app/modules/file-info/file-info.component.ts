@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {UploadService} from '../../services/upload/upload.service';
 import {WorkerService} from '../../services/worker/worker.service';
@@ -11,27 +11,46 @@ import {ConfirmDialogData} from '../custom-dialog/models/confirm-dialog-data.mod
 import {DefaultConfirmDialogComponent} from '../custom-dialog/default-confirm-dialog/default-confirm-dialog.component';
 import {FileDownloadService} from '../download/file-download/file-download.service';
 import {DownloadItem} from '../../models/DownloadItem';
-import {Subject} from 'rxjs';
+import {Subject, Subscription} from 'rxjs';
 import {DownloadStatusDialogComponent} from './download-status-dialog/download-status-dialog.component';
 import {DownloadStatusData} from './download-status-dialog/download-status-data.model';
+import {DisclaimerDialogComponent} from './disclaimer-dialog/disclaimer-dialog.component';
+import {MediaChange, MediaObserver} from '@angular/flex-layout';
+
 
 @Component({
   selector: 'app-file-info',
   templateUrl: './file-info.component.html',
   styles: []
 })
-export class FileInfoComponent implements OnInit {
+export class FileInfoComponent implements OnInit, OnDestroy {
   @ViewChild('selectionList', { static: true }) selectionList: MatSelectionList;
+  private watcher: Subscription;
+  private isMobileDevice: boolean;
 
   constructor(private fb: FormBuilder,
               private uploadService: UploadService,
               private workerService: WorkerService,
               public dialog: MatDialog,
-              private fileDownloadService: FileDownloadService) {
+              private fileDownloadService: FileDownloadService,
+              private media: MediaObserver) {
+    this.watcher = media.asObservable().subscribe((change: MediaChange[]) => {
+      this.isMobileDevice = change[0].mqAlias === 'xs';
+    });
   }
 
   ngOnInit() {
+    this.dialog.open(DisclaimerDialogComponent, {
+      width: this.isMobileDevice ? Constants.DIALOG_WIDTH_MOBILE : Constants.DIALOG_WIDTH_DEFAULT,
+      height: this.isMobileDevice ? '100%' : 'auto',
+      panelClass: this.isMobileDevice ? 'mobile-dialog-container' : 'custom-dialog-container',
+      disableClose: true
+    });
   }
+
+  ngOnDestroy() {
+      this.watcher.unsubscribe();
+    }
 
   public addFile(event) {
     if (!(event.target.files && event.target.files.length)) {
@@ -49,16 +68,16 @@ export class FileInfoComponent implements OnInit {
         message: 'Dieser Dateityp wird nicht unterstützt. Bitte wählen Sie eine andere Datei aus.'
       };
 
-      this.dialog.open(CustomInfoDialogComponent, {width: Constants.CUSTOM_DIALOG_WIDTH, data: infoData});
+      this.dialog.open(CustomInfoDialogComponent, {
+        width: this.isMobileDevice ? Constants.DIALOG_WIDTH_MOBILE : Constants.DIALOG_WIDTH_DEFAULT,
+        height: this.isMobileDevice ? '100%' : 'auto',
+        panelClass: this.isMobileDevice ? 'mobile-dialog-container' : 'custom-dialog-container',
+        data: infoData});
     }
   }
 
   public getFiles(): Set<File> {
     return this.uploadService.getUploadedFiles();
-  }
-
-  public removeFile(file: File) {
-    this.uploadService.removeFile(file);
   }
 
   public getNumberOfSongs(file: File) {
@@ -91,7 +110,9 @@ export class FileInfoComponent implements OnInit {
 
   public deleteSelectedItems() {
     this.dialog.open(DefaultConfirmDialogComponent, {
-      width: Constants.CUSTOM_DIALOG_WIDTH,
+      width: this.isMobileDevice ? Constants.DIALOG_WIDTH_MOBILE : Constants.DIALOG_WIDTH_DEFAULT,
+      height: this.isMobileDevice ? '100%' : 'auto',
+      panelClass: this.isMobileDevice ? 'mobile-dialog-container' : 'custom-dialog-container',
       data: {
         title: 'Ausgewählte Dateien löschen?',
         message: '',
@@ -107,22 +128,32 @@ export class FileInfoComponent implements OnInit {
     });
   }
 
-  public downloadSelectedItems() {
+  public async downloadSelectedItems() {
+    for (const item of this.selectionList.selectedOptions.selected) {
+      console.log('do it: ', item);
+      await this.processDownload(item);
+    }
+  }
 
-    this.selectionList.selectedOptions.selected.forEach(item => {
-      const songFileName = item.value.name;
-      const downloadItems: DownloadItem[] =  this.getFileInfo(item.value).items;
-      const counterSubject = this.fileDownloadService.downloadFiles(downloadItems, songFileName);
+  private async processDownload(item) {
+    const songFileName = item.value.name;
+    const downloadItems: DownloadItem[] = this.getFileInfo(item.value).items;
+    const counterSubject: Subject<number> = new Subject<number>();
 
-      this.dialog.open(DownloadStatusDialogComponent, {
-        data: {
-          counterSubject,
-          numberOfDownloads: downloadItems.length,
-          songFileName,
-        } as DownloadStatusData
-      });
+    const dialogRef = this.dialog.open(DownloadStatusDialogComponent, {
+      width: this.isMobileDevice ? Constants.DIALOG_WIDTH_MOBILE : Constants.DIALOG_WIDTH_DEFAULT,
+      height: this.isMobileDevice ? '100%' : 'auto',
+      panelClass: this.isMobileDevice ? 'mobile-dialog-container' : 'custom-dialog-container',
+      disableClose: true,
+      data: {
+        counterSubject,
+        numberOfDownloads: downloadItems.length,
+        songFileName,
+      } as DownloadStatusData
     });
 
+    await this.fileDownloadService.downloadFiles(downloadItems, songFileName, counterSubject);
+    await dialogRef.afterClosed().toPromise();
   }
 
   public disableDownloadButton() {

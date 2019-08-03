@@ -1,0 +1,13 @@
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 0;
+}
+
+.mobile-dialog-container {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+.mobile-dialog-container .mat-dialog-container {
+  padding: 0;
+}

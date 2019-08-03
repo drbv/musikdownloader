@@ -17,6 +17,8 @@ export class BwDataAnalyzer extends BaseAnalyzer {
     const resultItem = new ResultItem();
     resultItem.numberOfSongs = 1;
 
+    console.log('di: ', this.currentModel, item[this.currentModel.folder], item[this.currentModel.databaseMusic.url], filename);
+
     const downloadItem = new DownloadItem();
     downloadItem.filename = filename;
     downloadItem.foldername = item[this.currentModel.folder];

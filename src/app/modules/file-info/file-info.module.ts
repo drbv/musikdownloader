@@ -5,7 +5,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule
+  MatListModule, MatProgressBarModule, MatProgressSpinnerModule
 } from '@angular/material';
 import {FileInfoComponent} from './file-info.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -14,11 +14,13 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {CustomDialogModule} from '../custom-dialog/custom-dialog.module';
 import {CommonModule} from '@angular/common';
 import {DownloadStatusDialogComponent} from './download-status-dialog/download-status-dialog.component';
+import { DisclaimerDialogComponent } from './disclaimer-dialog/disclaimer-dialog.component';
 
 @NgModule({
   declarations: [
     FileInfoComponent,
-    DownloadStatusDialogComponent
+    DownloadStatusDialogComponent,
+    DisclaimerDialogComponent
   ],
   imports: [
     CommonModule,
@@ -33,14 +35,17 @@ import {DownloadStatusDialogComponent} from './download-status-dialog/download-s
     MatListModule,
     MatIconModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   exports:
   [
     FileInfoComponent
   ],
   entryComponents: [
-    DownloadStatusDialogComponent
+    DownloadStatusDialogComponent,
+    DisclaimerDialogComponent
   ]
 })
 export class FileInfoModule { }
