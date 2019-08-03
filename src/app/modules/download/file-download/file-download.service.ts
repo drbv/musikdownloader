@@ -17,7 +17,7 @@ export class FileDownloadService {
     return this.zipFileGeneratedEvent;
   }
 
-  public async downloadFiles(downloadItems: DownloadItem[], fileName: string, notificationSubject: Subject<number>): Observable<any> {
+  public async downloadFiles(downloadItems: DownloadItem[], fileName: string, notificationSubject: Subject<number>) {
     const zip = new JSZip();
 
     await this.downloadFilesAsync(downloadItems, zip, fileName, notificationSubject);
