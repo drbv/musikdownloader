@@ -1,7 +1,22 @@
-<h1 mat-dialog-title>{{data.title}}</h1>
-<div mat-dialog-content>
-  <p>{{data.message}}</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button color="primary" (click)="onClickOk()">OK</button>
-</div>
+<mat-card>
+  <mat-card-header class="custom-dialog-header-width">
+    <mat-card-title>
+      {{data.title}}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div>{{data.message}}</div>
+  </mat-card-content>
+
+  <div fxLayout="row wrap" fxLayoutAlign="end center">
+      <button mat-stroked-button
+              class="custom-mat-button-default"
+              color="primary"
+              (click)="onClickOk()">
+          <span fxLayout="row" class="container-full-width" fxLayoutAlign="space-around center">
+            <div>OK</div>
+          </span>
+      </button>
+    </div>
+
+</mat-card>
