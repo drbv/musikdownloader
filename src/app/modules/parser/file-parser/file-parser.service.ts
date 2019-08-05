@@ -14,8 +14,6 @@ export class FileParserService {
   parse(file: File): Observable<ParserResult> {
     const parser = this.parserFactory.getParser(file);
 
-    console.log('found parser: ', parser);
-
     const subject = new Subject<ParserResult>();
 
     parser.parse(file).then(result => {
@@ -36,8 +34,6 @@ export class FileParserService {
     if (!file) {
       return 0;
     }
-
-    console.log('filename: ', file.name);
 
     return parseInt(file.name.substr(0, 7), 0);
   }

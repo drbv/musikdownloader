@@ -6,8 +6,6 @@ export class BwDataAnalyzer extends BaseAnalyzer {
 
   protected onAnalyzeItem(item: any): ResultItem {
 
-    console.log('works bw: ', this.currentModel);
-
     if (!item[this.currentModel.folder]) {
       return null;
     }
@@ -17,16 +15,12 @@ export class BwDataAnalyzer extends BaseAnalyzer {
     const resultItem = new ResultItem();
     resultItem.numberOfSongs = 1;
 
-    console.log('di: ', this.currentModel, item[this.currentModel.folder], item[this.currentModel.databaseMusic.url], filename);
-
     const downloadItem = new DownloadItem();
     downloadItem.filename = filename;
     downloadItem.foldername = item[this.currentModel.folder];
     downloadItem.url = item[this.currentModel.databaseMusic.url];
 
     resultItem.downloadItems.push(downloadItem);
-
-    console.log('result: ', resultItem);
 
     return resultItem;
   }

@@ -37,7 +37,6 @@ export class DownloadStatusDialogComponent implements OnInit, OnDestroy {
       }
     });
 
-    console.log('subscribe');
     this.zipFileGeneratedSubscription = this.fileDownloadService.getZipFileGeneratedObservable().subscribe(() => this.zipFileCompleted());
   }
 

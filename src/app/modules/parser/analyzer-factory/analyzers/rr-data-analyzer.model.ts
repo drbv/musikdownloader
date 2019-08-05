@@ -22,9 +22,6 @@ export class RrDataAnalyzer extends BaseAnalyzer {
 
     resultItem.downloadItems.push(downloadItem);
 
-    console.log('result: ', resultItem);
-    console.log('item: ', item);
-
     return resultItem;
   }
 }

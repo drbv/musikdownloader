@@ -130,7 +130,6 @@ export class FileInfoComponent implements OnInit, OnDestroy {
 
   public async downloadSelectedItems() {
     for (const item of this.selectionList.selectedOptions.selected) {
-      console.log('do it: ', item);
       await this.processDownload(item);
     }
   }

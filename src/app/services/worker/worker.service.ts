@@ -24,8 +24,6 @@ export class WorkerService {
 
   private getUploadedFile(file: File) {
     this.parseUploadedFiles(file);
-
-    console.log('received new file: ', file);
   }
 
   public getFileInfo(file: File): SongFileInfo {
@@ -46,11 +44,7 @@ export class WorkerService {
   }
 
   private async analyzeData(file: File, parserResult: ParserResult) {
-      console.log('start analysis');
-
       const analyzeResult = await this.analyzeDataService.analyze(parserResult);
-
-      console.log('analyze result: ', analyzeResult);
 
       this.setFileInfo(file, {
         competionNumber: parserResult.competitionNumber,

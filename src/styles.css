@@ -69,3 +69,19 @@
 .mat-card-header .mat-card-header-text {
   margin-left: 0;
 }
+
+
+/* footer */
+
+.footer-padding {
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.footer-margin {
+  margin: 0;
+}
+
+.footer-entry-padding {
+  padding-right: 20px;
+}

@@ -17,15 +17,12 @@ export class AnalyzeDataService {
   }
 
   public async analyze(parserResult: ParserResult): Promise<AnalyzeResult> {
-    console.log('analyzing data...', parserResult.data);
 
     const downloadItems: Array<DownloadItem> = [];
     let numberOfSongs = 0;
     let numberOfTeams = 0;
 
     for await (const item of parserResult.data) {
-
-      console.log('analyze this item: ', item);
 
       const resultItem = await this.processItem(item);
 
@@ -34,11 +31,7 @@ export class AnalyzeDataService {
         numberOfSongs += resultItem.numberOfSongs;
         numberOfTeams += resultItem.numberOfTeams;
       }
-
-      console.log('in foreach: ', numberOfSongs, numberOfTeams);
     }
-
-    console.log('sums: ', numberOfTeams, numberOfSongs);
 
     return {
       numberOfSongs,
@@ -48,8 +41,6 @@ export class AnalyzeDataService {
   }
 
   private async processItem(item: any): Promise<ResultItem> {
-
-    console.log('process item to analyze: ', item, item.Quelle);
 
     const analyzer: BaseAnalyzer = this.analyzerFactoryService.getAnalyzer(item.Quelle);
 

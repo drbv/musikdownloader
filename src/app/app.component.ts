@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {WorkerService} from './services/worker/worker.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +7,6 @@ import {WorkerService} from './services/worker/worker.service';
 })
 export class AppComponent {
 
-  constructor(private workerService: WorkerService) {
+  constructor() {
   }
 }

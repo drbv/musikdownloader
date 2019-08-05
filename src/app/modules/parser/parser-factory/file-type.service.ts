@@ -22,8 +22,6 @@ export class FileTypeService {
   {
     const extension = file.name.split('.').pop();
 
-    console.log('extension: ', extension);
-
     return this.isValidFileType(extension) ? extension as FileType : FileType.FILETYPE_INVLID;
   }
 

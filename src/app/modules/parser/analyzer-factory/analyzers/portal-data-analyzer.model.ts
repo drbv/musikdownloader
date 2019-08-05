@@ -6,8 +6,6 @@ export class PortalDataAnalyzer extends BaseAnalyzer {
 
   protected onAnalyzeItem(item: any): ResultItem {
 
-    console.log('works: ', this.currentModel);
-
     if (!item[this.currentModel.folder]) {
       return null;
     }
@@ -23,9 +21,6 @@ export class PortalDataAnalyzer extends BaseAnalyzer {
     this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.setup, 'Stellprobe');
     this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.show, 'Tanzmusik');
     this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.reserve, 'Ersatzmusik');
-
-
-    console.log('result: ', resultItem);
 
     return resultItem;
   }
