@@ -40,12 +40,6 @@ export class FileInfoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.dialog.open(DisclaimerDialogComponent, {
-      width: this.isMobileDevice ? Constants.DIALOG_WIDTH_MOBILE : Constants.DIALOG_WIDTH_DEFAULT,
-      height: this.isMobileDevice ? '100%' : 'auto',
-      panelClass: this.isMobileDevice ? 'mobile-dialog-container' : 'custom-dialog-container',
-      disableClose: true
-    });
   }
 
   ngOnDestroy() {

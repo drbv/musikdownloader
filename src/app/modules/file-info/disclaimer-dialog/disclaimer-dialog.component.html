@@ -1,27 +1,38 @@
-<mat-card>
-  <mat-card-header class="custom-dialog-header-width">
-    <mat-card-title>
-      Disclaimer
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <p aria-multiline="true">
-      Die mit diesem Downloader veröffentlichten Titel unterliegen dem deutschen Urheber- und Leistungsschutzrecht. Dies gilt insbesondere für Vervielfältigung, Bearbeitung, Übersetzung, Einspeicherung, Verarbeitung bzw. Wiedergabe von Titeln in Datenbanken oder anderen elektronischen Medien und Systemen. Die unerlaubte Vervielfältigung oder Weitergabe einzelner Titel oder kompletten Downloads ist nicht gestattet und strafbar.
-    </p>
-    <p aria-multiline="true">
-      Lediglich die Herstellung von Kopien und Downloads für den nicht kommerziellen Gebrauch auf entsprechenden DRBV Turnieren ist erlaubt.
-    </p>
-  </mat-card-content>
+<div fxLayout="row" fxLayoutAlign="center center" class="container-full-height">
+  <mat-card>
+    <mat-card-header class="custom-dialog-header-width">
+      <mat-card-title>
+        Disclaimer
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container-full-height">
+        <div class="container-overflow-auto container-full-height">
+          <p aria-multiline="true">
+            Die mit diesem Downloader veröffentlichten Titel unterliegen dem deutschen Urheber- und Leistungsschutzrecht.
+            Dies gilt insbesondere für Vervielfältigung, Bearbeitung, Übersetzung, Einspeicherung, Verarbeitung bzw.
+            Wiedergabe von Titeln in Datenbanken oder anderen elektronischen Medien und Systemen. Die unerlaubte
+            Vervielfältigung oder Weitergabe einzelner Titel oder kompletten Downloads ist nicht gestattet und strafbar.
+          </p>
+          <p aria-multiline="true">
+            Lediglich die Herstellung von Kopien und Downloads für den nicht kommerziellen Gebrauch auf entsprechenden
+            DRBV Turnieren ist erlaubt.
+          </p>
+        </div>
+      </div>
+    </mat-card-content>
 
-  <div fxLayout="row wrap" fxLayoutAlign="end center">
-    <button mat-stroked-button
-            class="custom-mat-button-default"
-            color="primary"
-            (click)="close()">
+    <div fxLayout="row wrap" fxLayoutAlign="end center">
+      <button mat-stroked-button
+              class="custom-mat-button-default"
+              color="primary"
+              (click)="close()">
           <span fxLayout="row" class="container-full-width" fxLayoutAlign="space-around center">
             <div>Akzeptieren</div>
           </span>
-    </button>
-  </div>
+      </button>
+    </div>
 
-</mat-card>
+  </mat-card>
+</div>
+
