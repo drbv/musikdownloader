@@ -1,4 +1,5 @@
-<div fxLayout="row" fxLayoutAlign="center center" class="container-full-height">
+<div fxLayout="column" fxLayoutAlign="start space-between" style="max-height: 80vh;">
+
   <mat-card>
     <mat-card-header class="custom-dialog-header-width">
       <mat-card-title>
@@ -6,22 +7,27 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
+
       <div class="container-full-height">
-        <div class="container-overflow-auto container-full-height">
-          <p aria-multiline="true">
-            Die mit diesem Downloader veröffentlichten Titel unterliegen dem deutschen Urheber- und Leistungsschutzrecht.
-            Dies gilt insbesondere für Vervielfältigung, Bearbeitung, Übersetzung, Einspeicherung, Verarbeitung bzw.
-            Wiedergabe von Titeln in Datenbanken oder anderen elektronischen Medien und Systemen. Die unerlaubte
-            Vervielfältigung oder Weitergabe einzelner Titel oder kompletten Downloads ist nicht gestattet und strafbar.
-          </p>
-          <p aria-multiline="true">
-            Lediglich die Herstellung von Kopien und Downloads für den nicht kommerziellen Gebrauch auf entsprechenden
-            DRBV Turnieren ist erlaubt.
-          </p>
+        <div style="max-height: 80vh;" class="container-full-height container-overflow-auto">
+          <div>
+            <p aria-multiline="true">
+              Die mit diesem Downloader veröffentlichten Titel unterliegen dem deutschen Urheber- und
+              Leistungsschutzrecht.
+              Dies gilt insbesondere für Vervielfältigung, Bearbeitung, Übersetzung, Einspeicherung, Verarbeitung bzw.
+              Wiedergabe von Titeln in Datenbanken oder anderen elektronischen Medien und Systemen. Die unerlaubte
+              Vervielfältigung oder Weitergabe einzelner Titel oder kompletten Downloads ist nicht gestattet und
+              strafbar.
+            </p>
+            <p aria-multiline="true">
+              Lediglich die Herstellung von Kopien und Downloads für den nicht kommerziellen Gebrauch auf entsprechenden
+              DRBV Turnieren ist erlaubt.
+            </p>
+          </div>
         </div>
       </div>
-    </mat-card-content>
 
+    </mat-card-content>
     <div fxLayout="row wrap" fxLayoutAlign="end center">
       <button mat-stroked-button
               class="custom-mat-button-default"
@@ -32,7 +38,5 @@
           </span>
       </button>
     </div>
-
   </mat-card>
 </div>
-
