@@ -1,6 +1,6 @@
 <div *ngIf="showProgressDownload()" fxLayout="column wrap" fxLayoutAlign="center center" class="container-full-height container-full-width">
   <div>
-    <p aria-multiline="true">Die Leider aus der Datei {{fileName}} werden nun vom DRBV-Server heruntergeladen:</p>
+    <p aria-multiline="true">Die Lieder aus der Datei {{fileName}} werden nun vom DRBV-Server heruntergeladen:</p>
   </div>
   <div fxLayout="row" fxLayoutAlign="center center" class="container-full-height container-full-width default-padding-top">
     <mat-progress-bar [value]="counter / total * 100"></mat-progress-bar>
