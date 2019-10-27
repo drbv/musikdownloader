@@ -32,7 +32,7 @@ export class PortalDataAnalyzer extends BaseAnalyzer {
       const fileId = item[type].split('=', 2)[1];
 
       downloadItem.filename = filename + fileId;
-      downloadItem.foldername = `/${item[this.currentModel.folder]}/${folder}/`;
+      downloadItem.foldername = `${item[this.currentModel.folder]}/${folder}/`;
       downloadItem.url = item[type];
 
       resultItem.downloadItems.push(downloadItem);

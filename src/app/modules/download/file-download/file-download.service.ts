@@ -24,15 +24,18 @@ export class FileDownloadService {
   }
 
   private async downloadFilesAsync(downloadItems: DownloadItem[], zip, fileName: string, subject: Subject<number>) {
+    console.log('zip b: ', zip);
     for (const [index, downloadItem] of downloadItems.entries()) {
       await this.httpClient.get(downloadItem.url, {
         responseType: 'blob'
       }).toPromise().then(data => {
-        zip.file(downloadItem.foldername + '/' + downloadItem.filename, data);
+        console.log('w: ', zip, downloadItem, downloadItem.foldername, downloadItem.filename);
+        zip.file(downloadItem.foldername + downloadItem.filename, data);
         subject.next(index + 1);
       });
     }
 
+    console.log('zip a: ', zip);
     zip.generateAsync({type: 'blob'})
       .then(content => {
         this.zipFileGeneratedEvent.emit();
