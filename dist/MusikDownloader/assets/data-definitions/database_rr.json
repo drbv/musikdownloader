@@ -1,0 +1,9 @@
+{
+  "folder": "Startklasse",
+  "databaseMusic" : {
+    "name": "Interpret Turnier",
+    "title": "Titel Turnier",
+    "speed": "Takte Turnier",
+    "url": "Musik Turnier"
+  }
+}
