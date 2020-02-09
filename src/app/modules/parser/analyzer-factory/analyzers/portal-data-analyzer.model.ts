@@ -10,7 +10,7 @@ export class PortalDataAnalyzer extends BaseAnalyzer {
       return null;
     }
 
-    const filename = `${item[this.currentModel.folder]}_${item[this.currentModel.danceTeam.familyname_female]}_${item[this.currentModel.danceTeam.familyname_male]}_`;
+    const filename = `${item[this.currentModel.folder]}_${item[this.currentModel.danceTeam.familyname_female]}_${item[this.currentModel.danceTeam.familyname_male]}_${item[this.currentModel.danceTeam.name_team]}_`;
 
     const resultItem = new ResultItem();
     resultItem.numberOfSongs = 0;
