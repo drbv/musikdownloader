@@ -18,9 +18,12 @@ export class PortalDataAnalyzer extends BaseAnalyzer {
 
     this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.footwork, 'ER_FT');
     this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.acrobatic, 'ER_Akro');
-    this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.setup, 'Stellprobe');
-    this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.show, 'Tanzmusik');
-    this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.reserve, 'Ersatzmusik');
+    this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.setup_short, 'Stellprobe_kurz');
+    this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.show_short, 'Tanzmusik_kurz');
+    this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.reserve_short, 'Ersatzmusik_kurz');
+    this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.setup_long, 'Stellprobe_lang');
+    this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.show_long, 'Tanzmusik_lang');
+    this.parseItem(item, filename, resultItem, this.currentModel.portalMusic.reserve_long, 'Ersatzmusik_lang');
 
     return resultItem;
   }

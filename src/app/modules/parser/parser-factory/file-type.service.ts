@@ -33,7 +33,7 @@ export class FileTypeService {
     {
       case FileType.FILETYPE_CSV:
       {
-        isValid = this.validateFileExtension(extension);
+        isValid = FileType.FILETYPE_CSV === extension;
         break;
       }
       default:
@@ -42,10 +42,5 @@ export class FileTypeService {
     }
 
     return isValid;
-  }
-
-  private validateFileExtension(extension: string)
-  {
-    return Object.values(FileType).includes(extension);
   }
 }

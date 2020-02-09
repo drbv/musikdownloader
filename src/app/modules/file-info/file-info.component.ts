@@ -3,7 +3,6 @@ import {FormBuilder} from '@angular/forms';
 import {UploadService} from '../../services/upload/upload.service';
 import {WorkerService} from '../../services/worker/worker.service';
 import {SongFileInfo} from '../../models/SongFileInfo';
-import {MatDialog, MatSelectionList} from '@angular/material';
 import {CustomInfoDialogComponent} from '../custom-dialog/custom-info-dialog/custom-info-dialog.component';
 import {DialogInfoData} from '../custom-dialog/models/dialog-info-data.model';
 import {Constants} from '../custom-dialog/models/constants.model';
@@ -14,8 +13,9 @@ import {DownloadItem} from '../../models/DownloadItem';
 import {Subject, Subscription} from 'rxjs';
 import {DownloadStatusDialogComponent} from './download-status-dialog/download-status-dialog.component';
 import {DownloadStatusData} from './download-status-dialog/download-status-data.model';
-import {DisclaimerDialogComponent} from './disclaimer-dialog/disclaimer-dialog.component';
 import {MediaChange, MediaObserver} from '@angular/flex-layout';
+import {MatSelectionList} from '@angular/material/list';
+import {MatDialog} from '@angular/material/dialog';
 
 
 @Component({

@@ -10,8 +10,11 @@
   "portalMusic": {
     "footwork" : "Musik Fusstechnik",
     "acrobatic" : "Musik Akrobatik",
-    "setup" : "Musik Stellprobe",
-    "show" : "Musik Tanzmusik",
-    "reserve" : "Musik Ersatzmusik"
+    "setup_short" : "Musik Stellprobe kurz",
+    "show_short" : "Musik Tanzmusik kurz",
+    "reserve_short" : "Musik Ersatzmusik kurz",
+    "setup_long" : "Musik Stellprobe lang",
+    "show_long" : "Musik Tanzmusik lang",
+    "reserve_long" : "Musik Ersatzmusik lang"
   }
 }

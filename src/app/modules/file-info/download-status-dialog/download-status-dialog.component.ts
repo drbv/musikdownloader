@@ -1,8 +1,8 @@
 import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {DownloadStatusData} from './download-status-data.model';
 import {FileDownloadService} from '../../download/file-download/file-download.service';
 import {Subscription} from 'rxjs';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-download-status-dialog',

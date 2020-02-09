@@ -9,9 +9,12 @@ export interface DanceTeam {
 export interface PortalMusic {
   footwork: string;
   acrobatic: string;
-  setup: string;
-  show: string;
-  reserve: string;
+  setup_short: string;
+  show_short: string;
+  reserve_short: string;
+  setup_long: string;
+  show_long: string;
+  reserve_long: string;
 }
 
 export interface DatabaseMusic {

@@ -1,21 +1,27 @@
-<div *ngIf="showProgressDownload()" fxLayout="column wrap" fxLayoutAlign="center center" class="container-full-height container-full-width">
-  <div>
-    <p aria-multiline="true">Die Lieder aus der Datei {{fileName}} werden nun vom DRBV-Server heruntergeladen:</p>
+<mat-card>
+  <div *ngIf="showProgressDownload()" fxLayout="column wrap" fxLayoutAlign="center center"
+       class="container-full-height container-full-width">
+    <div>
+      <p aria-multiline="true">Die Lieder aus der Datei {{fileName}} werden nun vom DRBV-Server heruntergeladen:</p>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center"
+         class="container-full-height container-full-width default-padding-top">
+      <mat-progress-bar [value]="counter / total * 100"></mat-progress-bar>
+    </div>
+    <div>
+      <p aria-multiline="true">Lied {{counter}} von {{total}}</p>
+    </div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="center center" class="container-full-height container-full-width default-padding-top">
-    <mat-progress-bar [value]="counter / total * 100"></mat-progress-bar>
-  </div>
-  <div>
-    <p aria-multiline="true">Lied {{counter}} von {{total}}</p>
-  </div>
-</div>
 
 
-<div *ngIf="showProgressZipGeneration()" fxLayout="column wrap" fxLayoutAlign="center center" class="container-full-height container-full-width">
-  <p aria-multiline="true">Eine Zip-Datei wird nun zum Download bereitgestellt, die alle heruntergeladenen Lieder enthält.</p>
-  <p aria-multiline="true">Dieser Vorgang kann einige Zeit in Anspruch nehmen.</p>
-  <div fxLayout="row" fxLayoutAlign="center center" class="container-full-height container-full-width default-padding-top">
-    <mat-spinner></mat-spinner>
+  <div *ngIf="showProgressZipGeneration()" fxLayout="column wrap" fxLayoutAlign="center center"
+       class="container-full-height container-full-width">
+    <p aria-multiline="true">Eine Zip-Datei wird nun zum Download bereitgestellt, die alle heruntergeladenen Lieder
+      enthält.</p>
+    <p aria-multiline="true">Dieser Vorgang kann einige Zeit in Anspruch nehmen.</p>
+    <div fxLayout="row" fxLayoutAlign="center center"
+         class="container-full-height container-full-width default-padding-top">
+      <mat-spinner></mat-spinner>
+    </div>
   </div>
-</div>
-
+</mat-card>

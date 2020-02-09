@@ -1,5 +1,6 @@
-import {Papa, PapaParseError} from 'ngx-papaparse';
+
 import {IParser} from '../../file-definition/parser.interface';
+import {Papa, ParseError} from 'ngx-papaparse';
 
 
 export class CsvParser implements IParser {
@@ -18,7 +19,7 @@ export class CsvParser implements IParser {
           const resultData = Array.from(result.data);
 
           if (result.errors) {
-            result.errors.forEach((error: PapaParseError) => {
+            result.errors.forEach((error: ParseError) => {
 
               resultData.splice(error.row, 1);
             });
