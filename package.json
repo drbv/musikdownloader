@@ -26,7 +26,7 @@
     "file-saver": "^2.0.2",
     "hammerjs": "^2.0.8",
     "install": "^0.13.0",
-    "jszip": "^3.5.0",
+    "jszip": "^3.7.0",
     "material-design-icons": "^3.0.1",
     "ngx-papaparse": "^4.0.4",
     "npm": "^6.14.8",
