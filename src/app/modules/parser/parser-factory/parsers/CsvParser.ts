@@ -14,6 +14,7 @@ export class CsvParser implements IParser {
     return new Promise<any>((resolve, reject) => {
       this.papa.parse(file, {
         header: true,
+        encoding: 'latin1',
         complete: (result) => {
 
           const resultData = Array.from(result.data);
