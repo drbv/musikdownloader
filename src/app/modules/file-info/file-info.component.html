@@ -5,7 +5,7 @@
       <mat-card-subtitle>Bitte fügen Sie weitere Dateien hinzu</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <mat-selection-list #selectionList>
+      <mat-selection-list color="primary" #selectionList>
         <mat-list-option *ngFor="let file of getFiles()" [value]="file">
           <mat-icon mat-list-icon>music_note</mat-icon>
           <h4 mat-line>{{getCompetion(file)}}</h4>
